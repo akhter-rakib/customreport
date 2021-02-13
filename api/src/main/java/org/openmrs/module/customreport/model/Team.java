@@ -21,4 +21,11 @@ public class Team {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public Team() {
+	}
+	
+	public Team(String name) {
+		this.name = name;
+	}
 }

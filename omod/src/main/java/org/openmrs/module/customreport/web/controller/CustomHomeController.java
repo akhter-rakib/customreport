@@ -1,11 +1,12 @@
 package org.openmrs.module.customreport.web.controller;
 
 import org.openmrs.module.customreport.api.service.CustomReportService;
+import org.openmrs.module.customreport.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class CustomHomeController {
@@ -17,5 +18,17 @@ public class CustomHomeController {
 	@RequestMapping(value = "module/customreport/greeting.form", method = RequestMethod.GET)
 	public String greeting() {
 		return customReportService.welCome();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "module/customreport/saveTeam.form", method = RequestMethod.POST)
+	public void saveTeam(@RequestBody Team team) {
+		customReportService.saveTeam(team);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "module/customreport/getAllTeam.form", method = RequestMethod.GET)
+	public List<Team> getAllTeam() {
+		return customReportService.getAllTeam();
 	}
 }
