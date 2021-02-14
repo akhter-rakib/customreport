@@ -11,6 +11,27 @@ import java.util.List;
 
 @Controller
 public class CustomHomeController {
+  
+	@Autowired
+	CustomReportService customReportService;
+	
+	@ResponseBody
+	@RequestMapping(value = "module/customreport/greeting", method = RequestMethod.GET)
+	public String greeting() {
+		return customReportService.welCome();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "module/customreport/saveTeam", method = RequestMethod.POST)
+	public void saveTeam(@RequestBody Team team) {
+		customReportService.saveTeam(team);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "module/customreport/getAllTeam", method = RequestMethod.GET)
+	public List<Team> getAllTeam() {
+		return customReportService.getAllTeam();
+	}
     @Autowired
     private RegCollectionService regCollectionService;
 
