@@ -15,19 +15,19 @@ public class CustomHomeController {
 	CustomReportService customReportService;
 	
 	@ResponseBody
-	@RequestMapping(value = "module/customreport/greeting.form", method = RequestMethod.GET)
+	@RequestMapping(value = "module/customreport/greeting", method = RequestMethod.GET)
 	public String greeting() {
 		return customReportService.welCome();
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "module/customreport/saveTeam.form", method = RequestMethod.POST)
+	@RequestMapping(value = "module/customreport/saveTeam", method = RequestMethod.POST)
 	public void saveTeam(@RequestBody Team team) {
 		customReportService.saveTeam(team);
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "module/customreport/getAllTeam.form", method = RequestMethod.GET)
+	@RequestMapping(value = "module/customreport/getAllTeam", method = RequestMethod.GET)
 	public List<Team> getAllTeam() {
 		return customReportService.getAllTeam();
 	}
